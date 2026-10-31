@@ -1,0 +1,20 @@
+﻿version: 0.2
+phases:
+  install:
+    runtime-versions:
+      java: corretto17
+  pre_build:
+    commands:
+      - echo "Starting build"
+      - ls -la
+  build:
+    commands:
+      - mvn clean package -DskipTests
+  post_build:
+    commands:
+      - echo "Build completed"
+artifacts:
+  files:
+    - target/*.jar
+    - buildspec.yml
+  discard-paths: yes
